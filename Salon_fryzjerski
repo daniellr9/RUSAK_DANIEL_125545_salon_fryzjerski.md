@@ -1,0 +1,73 @@
+Projekt: Salon Fryzjerski
+Autor:Daniel Rusak  
+Nr Albumu: 125545  
+
+Cel projektu:
+Celem projektu jest stworzenie aplikacji symulującej działanie salonu fryzjerskiego. 
+
+
+ Zasada działania
+
+ Fryzjer
+1. Wybiera klienta z poczekalni lub czeka, aż taki się pojawi.
+2. Znajduje wolny fotel.
+3. Pobiera opłatę za usługę i umieszcza ją w kasie.
+4. Realizuje usługę fryzjerską.
+5. Zwalnia fotel.
+6. Wylicza resztę, korzystając z kasy (jeśli nie ma odpowiednich nominałów, czeka).
+7. Wręcza resztę klientowi.
+
+ Klient
+1. Zarabia pieniądze.
+2. Przychodzi do salonu fryzjerskiego.
+3. Jeśli w poczekalni jest miejsce, siada i czeka na fryzjera. W przeciwnym razie opuszcza salon.
+4. Po znalezieniu fryzjera płaci za usługę.
+5. Czeka na zakończenie usługi.
+6. Czeka na resztę.
+7. Opuszcza salon i wraca do zarabiania pieniędzy.
+
+ Kierownik (Kasjer)
+- Sygnał 1: Wysyła polecenie, aby dany fryzjer zakończył pracę.
+- Sygnał 2: Nakazuje wszystkim klientom (z foteli i poczekalni) natychmiastowe opuszczenie salonu.
+
+---
+
+Przypadki użycia
+
+1. Symulacja jednego fryzjera i jednego klienta:
+   - Fryzjer obsługuje jednego klienta, a reszta systemu jest nieużywana.
+   - Oczekiwany wynik: poprawna obsługa pojedynczego klienta.
+   
+2. Symulacja wielu klientów:
+   - Klienci losowo przychodzą do salonu. System powinien odpowiednio zarządzać poczekalnią i fotelami.
+   - Oczekiwany wynik: Klienci są obsługiwani zgodnie z dostępnością fryzjerów i miejsc w poczekalni.
+
+3. Test zakleszczenia w kasie:
+   - Fryzjer próbuje wydać resztę, ale brakuje odpowiednich nominałów.
+   - Oczekiwany wynik: Fryzjer czeka na uzupełnienie kasy przez innego fryzjera.
+
+4. Reakcja na sygnały:
+   - Test obsługi sygnałów 1 i 2 (zakończenie pracy fryzjera, natychmiastowe opuszczenie salonu przez klientów).
+   - Oczekiwany wynik: Fryzjerzy i klienci reagują zgodnie z założeniami.
+
+ Testy
+
+1. Test 1: Jednoczesne działanie wielu fryzjerów i klientów.
+   - Cel: Sprawdzenie poprawności synchronizacji między procesami.
+   - Warunki: 3 fryzjerów, 5 miejsc w poczekalni, 4 fotele.
+   - Oczekiwany wynik: Brak zakleszczeń, poprawna obsługa wszystkich klientów.
+
+2. Test 2: Zarządzanie kasą.
+   - Cel: Sprawdzenie poprawności obsługi reszty w przypadku braku nominałów.
+   - Warunki: Brak 10 zł w kasie, klient płaci 50 zł za usługę kosztującą 30 zł.
+   - Oczekiwany wynik: Fryzjer czeka na uzupełnienie nominałów.
+
+3. Test 3: Obsługa sygnałów.
+   - Cel: Sprawdzenie reakcji systemu na polecenia kierownika.
+   - Warunki: Sygnał 1 wysłany do jednego fryzjera, sygnał 2 wysłany do całego systemu.
+   - Oczekiwany wynik: Fryzjer kończy pracę, klienci opuszczają salon.
+
+
+
+ Link do repozytorium
+https://github.com/daniellr9/RUSAK_DANIEL_125545_salon_fryzjerski.md
